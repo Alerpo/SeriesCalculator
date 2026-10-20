@@ -7,6 +7,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
+// Класс для хранения результатов
+data class CalculationResult(
+    val sum: Double,
+    val lastTerm: Double,
+    val iterations: Int
+)
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var etEpsilon: EditText
@@ -50,5 +57,22 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Неверный формат числа", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    // Функция вычисления ряда
+    private fun calculateSeries(epsilon: Double): CalculationResult {
+        var sum = 0.0
+        var n = 1.0
+        var lastTerm = 1.0
+        var iterations = 0
+
+        do {
+            lastTerm = 1.0 / (n * n)
+            sum += lastTerm
+            iterations++
+            n++
+        } while (Math.abs(lastTerm) >= epsilon)
+
+        return CalculationResult(sum, lastTerm, iterations)
     }
 }
