@@ -7,7 +7,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-// Класс для хранения результатов
+
 data class CalculationResult(
     val sum: Double,
     val lastTerm: Double,
@@ -59,19 +59,21 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Функция вычисления ряда
+
     private fun calculateSeries(epsilon: Double): CalculationResult {
         var sum = 0.0
         var n = 1.0
         var lastTerm = 1.0
         var iterations = 0
 
-        do {
-            lastTerm = 1.0 / (n * n)
-            sum += lastTerm
-            iterations++
-            n++
-        } while (Math.abs(lastTerm) >= epsilon)
+        lastTerm = 1.0 / (n * n);
+
+        while (Math.abs(lastTerm) >= epsilon) {
+            sum += lastTerm;
+            iterations++;
+            n++;
+            lastTerm = 1.0 / (n * n);
+        }
 
         return CalculationResult(sum, lastTerm, iterations)
     }
