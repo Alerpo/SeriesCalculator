@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/etEpsilon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите малое число (epsilon)"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Вычислить"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/tvSum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Сумма: "
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/tvLastTerm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Последнее слагаемое: "
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvIterations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Количество повторений цикла: "
+        android:textSize="18sp" />
+</LinearLayout>
