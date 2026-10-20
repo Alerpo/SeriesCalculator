@@ -25,7 +25,15 @@ class MainActivity : AppCompatActivity() {
         tvIterations = findViewById(R.id.tvIterations)
 
         btnCalculate.setOnClickListener {
-            // Логика будет позже
+            val epsilonStr = etEpsilon.text.toString()
+            if (epsilonStr.isNotEmpty()) {
+                val epsilon = epsilonStr.toDouble()
+                val result = calculateSeries(epsilon)
+
+                tvSum.text = "Сумма: ${result.sum}"
+                tvLastTerm.text = "Последнее слагаемое: ${result.lastTerm}"
+                tvIterations.text = "Количество повторений цикла: ${result.iterations}"
+            }
         }
     }
 }
